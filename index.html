@@ -29,6 +29,7 @@
     transform: translate(10px, 10px);
     border-radius: 10px;
     padding: 10px;
+    display:none;
   }
   
   #Card1{
@@ -39,7 +40,13 @@
    #hotspot-camera-view-demo {
     width: 100%;
     height: 100vh;}
-  </style>
+
+    .show{
+      display:block;
+
+    }
+    
+    </style>
   </head> 
 <body>
   
@@ -59,8 +66,16 @@
     data-orbit="3.711166deg 92.3035deg 0.04335197m" data-target="-0.1879433m 0.1157161m -0.01563221m">
     Hold Tight!
   </button> 
-  <button class="hotspot" slot="hotspot-hand" data-position="2.53m -2.726m 2.9896m" data-normal="-0.73 0.05 0.69">
-    <div class="annotation">This hotspot disappears completely</div>
+  <button id="testButton" class="hotspot" slot="hotspot-hand" data-position="2.53m 2.9896m 2.726m" data-normal="-0.73 0.05 0.69">
+    <div id="xyz" class="annotation">
+      <h3>
+        This hotspot disappears completely
+      </h3>
+      <p>
+        hi hello althaf
+      </p>
+      
+    </div>
   </button>
 </model-viewer>
 </div>
@@ -78,7 +93,18 @@
     hotspot.addEventListener('click', () => annotationClicked(hotspot));
   });
 </script>
-
+<script>
+  const button = document.getElementById('testButton');
+  const div = document.getElementById('xyz');
+  button.addEventListener('click', () => {
+  alert();
+  if (div.classList.contains('show')) {
+      div.classList.remove('show');
+  } else {
+      div.classList.add('show');
+}
+});
+</script>
 <style type="text/css">
   .view-button {
       background: #fff;
